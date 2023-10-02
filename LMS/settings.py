@@ -14,7 +14,7 @@ load_dotenv(BASE_DIR / '.env')
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = SECRET_KEY='w7a8555a@lj8nax7tem0caa2f2rjm2ahsascyf83sa5alyv68vea'
+SECRET_KEY='w7a8555a@lj8nax7tem0caa2f2rjm2ahsascyf83sa5alyv68vea'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -169,12 +169,6 @@ AUTH_USER_MODEL = 'auth.User'
 
 
 
-#EMAIL_BACKEND='django.core.mail.backends.smtp.Emailbackend'
-# EMAIL_USE_TLS = True
-# EMAIL_HOST = 'smtp.gmail.com'
-# EMAIL_PORT = 587
-# EMAIL_HOST_USER = 'foltim256@gmail.com'
-# EMAIL_HOST_PASSWORD = 'hprh qlnh whos izmy'
 
 EMAIL_BACKEND = ['django.core.mail.backends.smtp.EmailBackend','django.core.mail.backends.console.EmailBackend']
 EMAIL_HOST = 'mailhog'  # Use the service name defined in docker-compose.yml
