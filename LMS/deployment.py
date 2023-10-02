@@ -26,13 +26,24 @@ connection_string=os.environ['AZURE_POSTGRESQL_CONNECTIONSTRING']
 parameters = {pair.split('=')[0]: pair.split('=')[1] for pair in connection_string.split(',')}
 
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': parameters['dbname'],
+#         'HOST': parameters['host'],
+#         'USER': parameters['user'],
+#         'PASSWORD': parameters['password'],
+#         'OPTIONS': {'sslmode': 'require'},
+#     }
+# }
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': parameters['dbname'],
-        'HOST': parameters['host'],
-        'USER': parameters['user'],
-        'PASSWORD': parameters['password'],
+        'NAME': 'technokraftzonline-database',
+        'HOST': 'technokraftzonline-server.postgres.database.azure.com',
+        'USER': 'xhzjzieman',
+        'PASSWORD': 'FO16A4AM85F2ZWR5$',
         'OPTIONS': {'sslmode': 'require'},
     }
 }
+
