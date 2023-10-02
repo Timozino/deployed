@@ -2,7 +2,7 @@ import os
 from .settings import *
 from .settings import BASE_DIR
 SECRET_KEY='w7a8555a@lj8nax7tem0caa2f2rjm2ahsascyf83sa5alyv68vea'#os.environ['SECRET']
-ALLOWED_HOSTS = [os.environ['WEBSITE_HOSTNAME']]
+ALLOWED_HOSTS = ['technokraftz.com', 'technokraftzonline.azurewebsites.net', 'www.technokraftz.com'] #[os.environ['WEBSITE_HOSTNAME']]
 CSRF_TRUSTED_ORIGINS=['https://'+ os.environ['WEBSITE_HOSTNAME']]
 DEBUG=False
 
