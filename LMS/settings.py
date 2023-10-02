@@ -17,7 +17,7 @@ load_dotenv(BASE_DIR / '.env')
 SECRET_KEY='w7a8555a@lj8nax7tem0caa2f2rjm2ahsascyf83sa5alyv68vea'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['technokraftz.com', 'technokraftzonline.azurewebsites.net', 'www.technokraftz.com']
 
