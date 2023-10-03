@@ -3,12 +3,13 @@ import os
 
 from pathlib import Path
 
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-from dotenv import load_dotenv
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-load_dotenv(BASE_DIR / '.env')
+
 
 
 # Quick-start development settings - unsuitable for production
@@ -18,7 +19,7 @@ load_dotenv(BASE_DIR / '.env')
 SECRET_KEY='w7a8555a@lj8nax7tem0caa2f2rjm2ahsascyf83sa5alyv68vea'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG =True
+DEBUG =False
 
 ALLOWED_HOSTS =['technokraftzonline.azurewebsites.net', 'technokraftz.com', '*']
 
@@ -86,10 +87,20 @@ WSGI_APPLICATION = 'LMS.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'technokraftzonline-database',
+        'HOST': 'technokraftzonline-server.postgres.database.azure.com',
+        'USER': 'xhzjzieman',
+        'PASSWORD': 'FO16A4AM85F2ZWR5$',
+        'OPTIONS': {'sslmode': 'require'},
     }
 }
 
@@ -138,14 +149,19 @@ SITE_ID = 1
 STATIC_URL = 'static/'
 
 # Define the directories where static files are located
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static_root')]
+# STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static_root')]
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
-MEDIA_URL = 'media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media', 'media')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
+
 #STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
+STATIC_URL = '/static/'
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static_root'),
+]
 
 
 # MEDIA_URL=static_or_media_list[1]
@@ -186,4 +202,4 @@ EMAIL_PORT = 1025  # The SMTP port exposed by MailHog
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-CSRF_TRUSTED_ORIGINS= ['technokraftzonline.azurewebsites.net', 'technokraftz.com', '*']
+CSRF_TRUSTED_ORIGINS= ['https://technokraftzonline.azurewebsites.net', 'https://technokraftz.com', 'http://technokraftz.com']
