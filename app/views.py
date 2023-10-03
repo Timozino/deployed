@@ -268,3 +268,6 @@ class AdBlockerMiddleware:
             b'<script src="{% static "assets/js/adblocker.js" %}"></script></body>',
         )
         return response
+    
+def custom_not_found_view(request, exception=None):
+    return redirect('error')

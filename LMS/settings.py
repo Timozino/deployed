@@ -18,7 +18,7 @@ load_dotenv(BASE_DIR / '.env')
 SECRET_KEY='w7a8555a@lj8nax7tem0caa2f2rjm2ahsascyf83sa5alyv68vea'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG =False
+DEBUG =True
 
 ALLOWED_HOSTS =['technokraftzonline.azurewebsites.net', 'technokraftz.com', '*']
 
@@ -144,7 +144,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 MEDIA_URL = 'media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media', 'media')
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+#STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 
 
@@ -186,3 +186,4 @@ EMAIL_PORT = 1025  # The SMTP port exposed by MailHog
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+CSRF_TRUSTED_ORIGINS= ['technokraftzonline.azurewebsites.net', 'technokraftz.com', '*']

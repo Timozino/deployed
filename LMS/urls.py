@@ -9,7 +9,7 @@ from django.views.generic.base import RedirectView
 
 #from django.contrib.auth import views as auth_views
 from .ads import AdsView
-
+from app.views import custom_not_found_view
 
 urlpatterns = [
     path(settings.ADMIN_URL, admin.site.urls),
@@ -28,5 +28,10 @@ urlpatterns = [
     path('ads.txt', AdsView.as_view()),
 
 ]
+
+
+
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+handler404 = 'myapp.views.custom_not_found_view'
