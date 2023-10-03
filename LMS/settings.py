@@ -128,10 +128,10 @@ SITE_ID = 1
 
 #static_or_media_list=['/static/', '/media/']
 # static_files_list=[os.path.join(BASE_DIR, 'static')]
-STATIC_URL = '/static/'
+STATIC_URL = 'static/'
 #STATIC_ROOT = 'static/'
 STATICFILES_DIRS=[os.path.join(BASE_DIR, 'static')]
-MEDIA_URL = '/media/'
+MEDIA_URL = 'media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 #MEDIA_URL = 'media/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static_root')
