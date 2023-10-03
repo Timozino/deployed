@@ -32,7 +32,7 @@ psycopg2-binary==2.9.5
 #pyjokes==0.6.0
 #PyMsgBox==1.0.9
 pyperclip==1.8.2
-pypiwin32==223
+#pypiwin32==223
 PyRect==0.2.0
 pyscreenshot==3.1
 PyScreeze==0.1.29
