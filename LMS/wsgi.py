@@ -11,8 +11,8 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 
-setting_module='LMS.deployment' if 'WEBSITE_HOSTNAME' in os.environ else 'LMS.settings'
+#setting_module='LMS.deployment' if 'WEBSITE_HOSTNAME' in os.environ else 'LMS.settings'
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', setting_module)
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'LMS.settings')
 
 application = get_wsgi_application()

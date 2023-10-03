@@ -4,7 +4,7 @@ import os
 from pathlib import Path
 
 
-from dotenv import load_dotenv
+from . import load_dotenv
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 load_dotenv(BASE_DIR / '.env')
@@ -19,10 +19,10 @@ SECRET_KEY='w7a8555a@lj8nax7tem0caa2f2rjm2ahsascyf83sa5alyv68vea'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG =False
 
-ALLOWED_HOSTS = ['technokraftzonline.azurewebsites.net', 'technokraftz.com', '*']
+ALLOWED_HOSTS =['technokraftzonline.azurewebsites.net', 'technokraftz.com', '*']
 
 
-#CSRF_TRUSTED_ORIGINS = os.getenv('CSRF_TRUSTED_ORIGINS').split(' ')
+#CSRF_TRUSTED_ORIGINS = os.getenv('CSRF_TRUSTED_ORIGINS').split('')
 
 
 # SECURE_SSL_REDIRECT = \
@@ -53,7 +53,7 @@ MIDDLEWARE = [
     'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     #'app.middleware.AdBlockerMiddleware',
-    'django.contrib.staticfiles.middleware.StaticFilesMiddleware',
+    #'django.contrib.staticfiles.middleware.StaticFilesMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -131,12 +131,19 @@ SITE_ID = 1
 
 #static_or_media_list=['/static/', '/media/']
 # static_files_list=[os.path.join(BASE_DIR, 'static')]
+# settings.py
+
+# Define the URL prefix for static files
 STATIC_URL = '/static/'
+
+# Define the directories where static files are located
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static_root')]
+
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-#STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 
 
