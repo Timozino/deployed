@@ -2,7 +2,7 @@ import os
 from .settings import *
 from .settings import BASE_DIR
 SECRET_KEY='w7a8555a@lj8nax7tem0caa2f2rjm2ahsascyf83sa5alyv68vea'#os.environ['SECRET']
-ALLOWED_HOSTS = ['technokraftz.com', 'technokraftzonline.azurewebsites.net', 'www.technokraftz.com'] #[os.environ['WEBSITE_HOSTNAME']]
+ALLOWED_HOSTS = ['technokraftzonline.azurewebsites.net', 'technokraftz.com', '*'] #[os.environ['WEBSITE_HOSTNAME']]
 CSRF_TRUSTED_ORIGINS=['https://'+ os.environ['WEBSITE_HOSTNAME']]
 DEBUG=False
 
@@ -11,6 +11,7 @@ MIDDLEWARE = [
     'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
    # 'app.middleware.AdBlockerMiddleware',
+    'django.contrib.staticfiles.middleware.StaticFilesMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -19,7 +20,13 @@ MIDDLEWARE = [
 ]
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-STATIC_ROOT=os.path.join(BASE_DIR, 'staticfiles')
+
+STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+#STATIC_ROOT=os.path.join(BASE_DIR, 'staticfiles')
 
 
 connection_string=os.environ['AZURE_POSTGRESQL_CONNECTIONSTRING']

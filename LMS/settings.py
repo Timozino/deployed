@@ -19,7 +19,8 @@ SECRET_KEY='w7a8555a@lj8nax7tem0caa2f2rjm2ahsascyf83sa5alyv68vea'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['technokraftz.com', 'technokraftzonline.azurewebsites.net', 'www.technokraftz.com']
+ALLOWED_HOSTS = ['technokraftzonline.azurewebsites.net', 'technokraftz.com', '*']
+
 
 #CSRF_TRUSTED_ORIGINS = os.getenv('CSRF_TRUSTED_ORIGINS').split(' ')
 
@@ -49,8 +50,10 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     #'app.middleware.AdBlockerMiddleware',
+    'django.contrib.staticfiles.middleware.StaticFilesMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -128,14 +131,12 @@ SITE_ID = 1
 
 #static_or_media_list=['/static/', '/media/']
 # static_files_list=[os.path.join(BASE_DIR, 'static')]
-STATIC_URL = 'static/'
-#STATIC_ROOT = 'static/'
-STATICFILES_DIRS=[os.path.join(BASE_DIR, 'static')]
-MEDIA_URL = 'media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-#MEDIA_URL = 'media/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'static_root')
+STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 
 
